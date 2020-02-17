@@ -11,6 +11,9 @@ import Tooltip from '../commonComponents/tooltip/Tooltip';
 import configOptionMerging from '../commonComponents/configOptionMerging';
 
 import { GeneAnnotationScaffold } from './GeneAnnotationScaffold';
+import { getGenomeConfig } from "../../../model/genomes/allGenomes";
+import TwoBitSource from '../../../dataSources/TwoBitSource';
+// import { igv } from 'storybook/storybook-static/js/igv.js';
 
 const ROW_VERTICAL_PADDING = 5;
 const ROW_HEIGHT = GeneAnnotation.HEIGHT + ROW_VERTICAL_PADDING;
@@ -49,8 +52,29 @@ class GeneAnnotationTrack extends React.Component {
      * @param {boolean} isLastRow - whether the annotation is assigned to the last configured row
      * @return {JSX.Element} element visualizing the gene
      */
+
+    async fetchSequence (region) {
+        if (!this.twoBitSource) {
+            this.setState({currentRegionSeq: 'genomic sequence is not added to this genome yet.'});
+            return;
+        }
+        try {
+            const sequence = await this.twoBitSource.getData(region);
+            console.log(sequence);
+            return sequence[0].sequence;
+        } catch (error) {
+            return error.toString();
+        }
+    }
+
     renderAnnotation(placedGroup, y, isLastRow, index) {
         const gene = placedGroup.feature;
+        const genomeConfig = getGenomeConfig(this.props.trackModel.genome);
+        this.twoBitSource = genomeConfig.twoBitURL ? new TwoBitSource(genomeConfig.twoBitURL) : null;
+        // const genomeConfig = this.props.genomeConfig;
+        const viewRegion = this.props.viewRegion;
+        const sequence = this.fetchSequence(viewRegion);
+        console.log(sequence);
         const {viewWindow, options} = this.props;
         return <GeneAnnotationScaffold
             key={index}
