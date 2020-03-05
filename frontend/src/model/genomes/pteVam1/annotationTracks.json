@@ -1,0 +1,20 @@
+{
+    "Ruler": [
+        {
+            "type": "ruler",
+            "label": "Ruler",
+            "name": "Ruler"
+        }
+    ],
+    "RepeatMasker": {
+        "All Repeats": [
+            {
+                "name": "rmsk_all",
+                "label": "RepeatMasker",
+                "filetype": "repeatmasker",
+                "url": "https://wangftp.wustl.edu/~xzhuo/bat_genomes/pteVam1.bb",
+                "height": 30
+            }
+        ]
+    }
+}

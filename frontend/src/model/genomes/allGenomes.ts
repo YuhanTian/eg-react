@@ -8,6 +8,8 @@ import RN6 from "./rn6/rn6";
 import MM9 from "./mm9/mm9";
 import BosTau8 from "./bosTau8/bosTau8";
 import RheMac8 from "./rheMac8/rheMac8";
+import MYOLUC2 from './myoLuc2/myoLuc2';
+import PTEVAM1 from './pteVam1/pteVam1';
 import GalGal6 from "./galGal6/galGal6";
 import GalGal5 from "./galGal5/galGal5";
 import AraTha1 from "./araTha1/araTha1";
@@ -37,6 +39,8 @@ export const allGenomes = [
   RN6,
   AraTha1,
   RheMac8,
+  MYOLUC2,
+  PTEVAM1,
   GalGal6,
   GalGal5,
   DM6,
@@ -98,6 +102,16 @@ export const treeOfLife: { [speciesName: string]: SpeciesConfig } = {
     logoUrl: "https://epigenomegateway.wustl.edu/browser/images/Rat.png",
     assemblies: [RN6.genome.getName()],
     color: "white"
+  },
+  "large flying fox": {
+    logoUrl: 'https://wangftp.wustl.edu/~xzhuo/bat_genomes/flyingFox.png',
+    assemblies: [ PTEVAM1.genome.getName() ],
+    color: 'white',
+  },
+  "little brown bat": {
+      logoUrl: 'https://wangftp.wustl.edu/~xzhuo/bat_genomes/littleBrownBat.png',
+      assemblies: [ MYOLUC2.genome.getName() ],
+      color: 'black',
   },
   chicken: {
     logoUrl: "https://epigenomegateway.wustl.edu/browser/images/Chicken.png",

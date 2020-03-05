@@ -1,0 +1,29 @@
+{
+    "Ruler": [
+        {
+            "type": "ruler",
+            "label": "Ruler",
+            "name": "Ruler"
+        }
+    ],
+    "RepeatMasker": {
+        "All Repeats": [
+            {
+                "name": "rmsk_all",
+                "label": "RepeatMasker",
+                "filetype": "repeatmasker",
+                "url": "https://wangftp.wustl.edu/~xzhuo/bat_genomes/myoLuc2.bb",
+                "height": 30
+            }
+        ]
+    },
+    "Genome Comparison": [
+        {
+            "name": "pteVam1tomyoLuc2",
+            "label": "pteVam1 to myoLuc2 minimap",
+            "querygenome": "pteVam1",
+            "filetype": "genomealign",
+            "url": "https://wangftp.wustl.edu/~xzhuo/bat_genomes/PV2ML.gz"
+        }
+    ]
+}
